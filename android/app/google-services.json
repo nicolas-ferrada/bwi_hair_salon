@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "717450799400",
+    "project_id": "bwi-hair-salon",
+    "storage_bucket": "bwi-hair-salon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:717450799400:android:eb8fda3aeeddd9d769881d",
+        "android_client_info": {
+          "package_name": "com.example.bwi_hair_salon"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXKGcfCcyfDeMiKY1lmPnPe1CcgHxvGP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
