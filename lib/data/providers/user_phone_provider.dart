@@ -2,12 +2,12 @@
 import 'package:flutter/material.dart';
 
 class UserPhoneProvider extends ChangeNotifier {
-  int? _userPhone;
+  String? _userPhone;
   UserPhoneProvider({
     int? userPhone,
   });
 
-  int getUserPhone() {
+  String getUserPhone() {
     if (_userPhone != null) {
       return _userPhone!;
     } else {
@@ -16,7 +16,7 @@ class UserPhoneProvider extends ChangeNotifier {
   }
 
   void changePhone({
-    required int newUserPhone,
+    required String newUserPhone,
   }) {
     _userPhone = newUserPhone;
     notifyListeners();

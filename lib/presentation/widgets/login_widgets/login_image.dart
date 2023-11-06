@@ -10,8 +10,9 @@ class LoginImage extends StatelessWidget {
         'Hair Salon',
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 64,
+          fontSize: 38,
           fontWeight: FontWeight.bold,
+          fontStyle: FontStyle.italic,
         ),
       ),
     );
