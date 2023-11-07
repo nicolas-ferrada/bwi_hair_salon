@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 
 class UserPhoneProvider extends ChangeNotifier {
   String? _userPhone;
+  String? _userOTP;
   UserPhoneProvider({
     int? userPhone,
+    int? userOTP,
   });
 
   String getUserPhone() {
@@ -19,6 +21,21 @@ class UserPhoneProvider extends ChangeNotifier {
     required String newUserPhone,
   }) {
     _userPhone = newUserPhone;
+    notifyListeners();
+  }
+
+  String getUserOTP() {
+    if (_userOTP != null) {
+      return _userOTP!;
+    } else {
+      throw Exception('No OTP was given');
+    }
+  }
+
+  void changeUserOTP({
+    required String newUserOTP,
+  }) {
+    _userOTP = newUserOTP;
     notifyListeners();
   }
 }

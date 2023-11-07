@@ -4,11 +4,15 @@ import '../widgets/login_button.dart';
 import '../widgets/login_image.dart';
 import '../widgets/login_legal.dart';
 import '../widgets/login_otp_container.dart';
-import '../widgets/login_phone_input.dart';
 import '../widgets/login_skip_button.dart';
+import '../widgets/otp_code_input.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class OTP extends StatelessWidget {
+  final String verificationId;
+  const OTP({
+    super.key,
+    required this.verificationId,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +30,7 @@ class Login extends StatelessWidget {
                 children: [
                   skipButton(),
                   image(),
-                  containerPhoneButtonLegal(),
+                  containerCodeButtonLegal(),
                 ],
               ),
             ),
@@ -44,16 +48,16 @@ class Login extends StatelessWidget {
 
   Widget image() => const Flexible(flex: 3, child: LoginImage());
 
-  Widget containerPhoneButtonLegal() {
-    return const Flexible(
+  Widget containerCodeButtonLegal() {
+    return Flexible(
       flex: 4,
       child: LoginOTPContainer(
-        isLoginScreen: true,
+        isLoginScreen: false,
         elements: [
-          SizedBox(height: 32),
-          LoginPhoneInput(),
-          LoginButton(isLoginScreen: true),
-          LoginLegal(),
+          const SizedBox(height: 32),
+          const OTPCodeInput(),
+          LoginButton(isLoginScreen: false, verificationId: verificationId),
+          const LoginLegal(),
         ],
       ),
     );

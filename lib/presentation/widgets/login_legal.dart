@@ -1,5 +1,6 @@
-import 'package:bwi_hair_salon/presentation/utils/color_palette.dart';
 import 'package:flutter/material.dart';
+
+import '../utils/color_palette.dart';
 
 class LoginLegal extends StatelessWidget {
   const LoginLegal({super.key});

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-class LoginContainer extends StatelessWidget {
+class LoginOTPContainer extends StatelessWidget {
   final List<Widget> elements;
-  const LoginContainer({
+  final bool isLoginScreen;
+  const LoginOTPContainer({
     super.key,
     required this.elements,
+    required this.isLoginScreen,
   });
 
   @override
@@ -16,13 +18,13 @@ class LoginContainer extends StatelessWidget {
         container(),
         Positioned(
           top: -50,
-          child: icon(),
+          child: isLoginScreen ? iconLogin() : iconOTP(),
         ),
       ],
     );
   }
 
-  Widget icon() {
+  Widget iconLogin() {
     return Material(
       elevation: 1,
       borderRadius: BorderRadius.circular(50),
@@ -43,6 +45,37 @@ class LoginContainer extends StatelessWidget {
             Positioned(
               right: 10,
               child: Icon(Icons.arrow_forward, size: 28),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget iconOTP() {
+    return Material(
+      elevation: 1,
+      borderRadius: BorderRadius.circular(50),
+      child: Container(
+        width: 90,
+        height: 90,
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+        ),
+        child: const Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned(
+              top: 18,
+              child: Icon(
+                Icons.lock_outline,
+                size: 42,
+              ),
+            ),
+            Positioned(
+              bottom: 10,
+              child: Icon(Icons.password, size: 28),
             ),
           ],
         ),
