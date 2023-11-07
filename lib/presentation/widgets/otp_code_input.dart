@@ -19,6 +19,17 @@ class _OTPCodeInputState extends State<OTPCodeInput> {
   TextEditingController pin6 = TextEditingController();
 
   @override
+  void dispose() {
+    pin1.dispose();
+    pin2.dispose();
+    pin3.dispose();
+    pin4.dispose();
+    pin5.dispose();
+    pin6.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
