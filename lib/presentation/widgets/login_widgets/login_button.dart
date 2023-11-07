@@ -1,9 +1,10 @@
+import 'package:bwi_hair_salon/domain/phone_service.dart';
+import 'package:bwi_hair_salon/presentation/utils/color_palette.dart';
+import 'package:bwi_hair_salon/presentation/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../data/providers/user_phone_provider.dart';
-import '../../domain/phone_service.dart';
-import '../utils/color_palette.dart';
 
 class LoginButton extends StatelessWidget {
   final bool isLoginScreen;
@@ -32,25 +33,31 @@ class LoginButton extends StatelessWidget {
     );
   }
 
-  void loginWithPhoneNumber(BuildContext context) {
+  void loginWithPhoneNumber(BuildContext context) async {
     try {
-      PhoneService.signInWithPhone(
+      await SignInWithPhoneService.verifyPhoneNumber(
         context: context,
         phoneNumber: context.read<UserPhoneProvider>().getUserPhone(),
       );
     } catch (error) {
-      if (!context.mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(error.toString()),
-      ));
+      // ignore: use_build_context_synchronously
+      ShowSnackbar().show(context: context, message: error.toString());
     }
   }
 
-  void confirmOTPCode(BuildContext context) {
-    PhoneService.verifyOTP(
-      context: context,
-      verificationId: verificationId!,
-      userOTP: context.read<UserPhoneProvider>().getUserOTP(),
-    );
+  void confirmOTPCode(BuildContext context) async {
+    try {
+      await SignInWithPhoneService.verifyOTP(
+        context: context,
+        verificationId: verificationId!,
+        userOTP: context.read<UserPhoneProvider>().getUserOTP(),
+      ).then((value) => Navigator.maybePop(context));
+    } catch (error) {
+      // ignore: use_build_context_synchronously
+      ShowSnackbar().show(
+        context: context,
+        message: error.toString(),
+      );
+    }
   }
 }

@@ -1,12 +1,12 @@
+import 'package:bwi_hair_salon/presentation/widgets/login_widgets/otp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'dart:developer' as log;
 
-import '../presentation/screens/otp.dart';
-
-class PhoneService {
+class SignInWithPhoneService {
   static final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  static void signInWithPhone({
+  static Future<void> verifyPhoneNumber({
     required BuildContext context,
     required String phoneNumber,
   }) async {
@@ -14,12 +14,15 @@ class PhoneService {
       await _firebaseAuth.verifyPhoneNumber(
         phoneNumber: phoneNumber,
         verificationCompleted: (PhoneAuthCredential phoneAuthCredential) async {
+          log.log('verificationCompleted');
           await _firebaseAuth.signInWithCredential(phoneAuthCredential);
         },
         verificationFailed: (error) {
+          log.log('failed');
           throw Exception(error.message);
         },
         codeSent: (verificationId, forceResendingToken) {
+          log.log('code sent');
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -30,14 +33,11 @@ class PhoneService {
         codeAutoRetrievalTimeout: (verificationId) {},
       );
     } catch (error) {
-      if (!context.mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(error.toString()),
-      ));
+      throw Exception(error);
     }
   }
 
-  static void verifyOTP({
+  static Future<void> verifyOTP({
     required BuildContext context,
     required String verificationId,
     required String userOTP,
@@ -47,14 +47,9 @@ class PhoneService {
         verificationId: verificationId,
         smsCode: userOTP,
       );
-      await _firebaseAuth
-          .signInWithCredential(credential)
-          .then((value) => Navigator.maybePop(context));
+      await _firebaseAuth.signInWithCredential(credential);
     } catch (error) {
-      if (!context.mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(error.toString()),
-      ));
+      throw Exception(error);
     }
   }
 }

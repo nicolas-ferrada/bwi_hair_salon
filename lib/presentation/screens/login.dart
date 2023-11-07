@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/login_button.dart';
-import '../widgets/login_image.dart';
-import '../widgets/login_legal.dart';
-import '../widgets/login_otp_container.dart';
-import '../widgets/login_phone_input.dart';
-import '../widgets/login_skip_button.dart';
+import '../widgets/login_widgets/login_button.dart';
+import '../widgets/login_widgets/login_image.dart';
+import '../widgets/login_widgets/login_legal.dart';
+import '../widgets/login_widgets/login_otp_container.dart';
+import '../widgets/login_widgets/login_phone_input.dart';
+import '../widgets/login_widgets/login_skip_button.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});

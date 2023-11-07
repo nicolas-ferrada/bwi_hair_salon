@@ -1,7 +1,6 @@
+import 'package:bwi_hair_salon/data/providers/user_phone_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../data/providers/user_phone_provider.dart';
 
 class OTPCodeInput extends StatefulWidget {
   const OTPCodeInput({super.key});
