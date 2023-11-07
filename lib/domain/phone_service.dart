@@ -1,7 +1,6 @@
 import 'package:bwi_hair_salon/presentation/widgets/login_widgets/otp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'dart:developer' as log;
 
 class SignInWithPhoneService {
   static final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -9,31 +8,33 @@ class SignInWithPhoneService {
   static Future<void> verifyPhoneNumber({
     required BuildContext context,
     required String phoneNumber,
+    int? resendOTP,
   }) async {
     try {
       await _firebaseAuth.verifyPhoneNumber(
+        forceResendingToken: resendOTP,
         phoneNumber: phoneNumber,
         verificationCompleted: (PhoneAuthCredential phoneAuthCredential) async {
-          log.log('verificationCompleted');
           await _firebaseAuth.signInWithCredential(phoneAuthCredential);
         },
-        verificationFailed: (error) {
-          log.log('failed');
-          throw Exception(error.message);
-        },
+        verificationFailed: (error) => throw Exception(error.toString()),
         codeSent: (verificationId, forceResendingToken) {
-          log.log('code sent');
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => OTP(verificationId: verificationId),
-            ),
-          );
+          if (resendOTP == null) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => OTP(
+                  verificationId: verificationId,
+                  resendOTP: forceResendingToken,
+                ),
+              ),
+            );
+          }
         },
         codeAutoRetrievalTimeout: (verificationId) {},
       );
-    } catch (error) {
-      throw Exception(error);
+    } catch (e) {
+      throw Exception(e);
     }
   }
 

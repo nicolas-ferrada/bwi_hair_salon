@@ -4,13 +4,16 @@ import 'package:bwi_hair_salon/presentation/widgets/login_widgets/login_legal.da
 import 'package:bwi_hair_salon/presentation/widgets/login_widgets/login_otp_container.dart';
 import 'package:bwi_hair_salon/presentation/widgets/login_widgets/login_skip_button.dart';
 import 'package:bwi_hair_salon/presentation/widgets/login_widgets/otp_code_input.dart';
+import 'package:bwi_hair_salon/presentation/widgets/login_widgets/otp_resend_code.dart';
 import 'package:flutter/material.dart';
 
 class OTP extends StatelessWidget {
   final String verificationId;
+  final int? resendOTP;
   const OTP({
     super.key,
     required this.verificationId,
+    required this.resendOTP,
   });
 
   @override
@@ -55,6 +58,7 @@ class OTP extends StatelessWidget {
         elements: [
           const SizedBox(height: 32),
           const OTPCodeInput(),
+          OTPResendCode(resendOTP: resendOTP),
           LoginButton(isLoginScreen: false, verificationId: verificationId),
           const LoginLegal(),
         ],
