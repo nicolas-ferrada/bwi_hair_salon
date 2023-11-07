@@ -55,7 +55,7 @@ class _OTPCodeInputState extends State<OTPCodeInput> {
     return SizedBox(
       width: 40,
       child: TextFormField(
-        maxLength: 1,
+        maxLength: 6,
         autofocus: true,
         keyboardType: TextInputType.number,
         decoration: const InputDecoration(counterText: ""),
@@ -69,8 +69,27 @@ class _OTPCodeInputState extends State<OTPCodeInput> {
               );
           if (value.length == 1) {
             FocusScope.of(context).nextFocus();
-          } else {
+          } else if (value.isEmpty) {
             FocusScope.of(context).previousFocus();
+          } else if (value.length == 6) {
+            pin1.text = value[0];
+            pin2.text = value[1];
+            pin3.text = value[2];
+            pin4.text = value[3];
+            pin5.text = value[4];
+            pin6.text = value[5];
+          } else if (value.length != 6 ||
+              value.length != 1 ||
+              value.isNotEmpty) {
+            // Don't allow to paste multiple numbers in one textformfield (if not 6, 1 or delete)
+            // Problem: if writes their code and try to paste some part of the code and not
+            // all of it, all the code will be deleted.
+            pin1.text = '';
+            pin2.text = '';
+            pin3.text = '';
+            pin4.text = '';
+            pin5.text = '';
+            pin6.text = '';
           }
         },
       ),
