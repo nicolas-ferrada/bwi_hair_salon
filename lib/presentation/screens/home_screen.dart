@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
         } else if (snapshot.hasError) {
           return throw Exception(snapshot.error.toString());
         } else {
-          return const CircularProgressIndicator();
+          return loadingWidget();
         }
       },
     );
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
         } else if (snapshot.hasError) {
           return throw Exception(snapshot.error.toString());
         } else {
-          return const CircularProgressIndicator();
+          return loadingWidget();
         }
       },
     );
@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
         } else if (snapshot.hasError) {
           return throw Exception(snapshot.error.toString());
         } else {
-          return const CircularProgressIndicator();
+          return loadingWidget();
         }
       },
     );
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
         } else if (snapshot.hasError) {
           return throw Exception(snapshot.error.toString());
         } else {
-          return const CircularProgressIndicator();
+          return loadingWidget();
         }
       },
     );
@@ -97,23 +97,26 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget body() {
     return SafeArea(
       minimum: const EdgeInsets.all(16),
-      child: CustomScrollView(
+      child: SingleChildScrollView(
         physics: const ClampingScrollPhysics(),
-        slivers: [
-          SliverFillRemaining(
-            hasScrollBody: false,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                OfferDisplay(
-                  offerList: offerList,
-                ),
-              ],
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            OfferDisplay(
+              offerList: offerList,
             ),
-          ),
-        ],
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget loadingWidget() {
+    return const Center(
+      child: CircularProgressIndicator(
+        color: Colors.grey,
       ),
     );
   }
