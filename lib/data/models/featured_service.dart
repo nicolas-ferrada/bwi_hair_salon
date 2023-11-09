@@ -1,7 +1,7 @@
 import 'abstract_section.dart';
 
 class FeaturedService extends Section {
-  final double price;
+  final num price;
 
   FeaturedService({
     required this.price,
@@ -12,7 +12,7 @@ class FeaturedService extends Section {
 
   factory FeaturedService.fromMap(Map<String, dynamic> map) {
     return FeaturedService(
-      price: map['price'] as double,
+      price: map['price'] as num,
       title: map['title'] as String,
       image: map['image'] as String,
       category: map['category'] as String,

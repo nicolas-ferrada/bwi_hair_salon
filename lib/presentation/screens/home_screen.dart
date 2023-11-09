@@ -7,6 +7,7 @@ import '../../data/models/offer.dart';
 import '../../data/models/popular_service.dart';
 import '../../domain/database_service.dart';
 import '../widgets/home_widgets/appbar_home.dart';
+import '../widgets/home_widgets/featured_service_display.dart';
 import '../widgets/home_widgets/offer_display.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -104,9 +105,9 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            OfferDisplay(
-              offerList: offerList,
-            ),
+            OfferDisplay(offerList: offerList),
+            const SizedBox(height: 8),
+            FeaturedServiceDisplay(featuredServiceList: featureServiceList),
           ],
         ),
       ),
