@@ -1,3 +1,5 @@
+import 'package:bwi_hair_salon/presentation/screens/category_screen.dart';
+import 'package:bwi_hair_salon/presentation/screens/coming_soon_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +8,7 @@ import '../../data/models/featured_service.dart';
 import '../../data/models/offer.dart';
 import '../../data/models/popular_service.dart';
 import '../../domain/database_service.dart';
+import '../utils/color_palette.dart';
 import '../widgets/home_widgets/appbar_home.dart';
 import '../widgets/home_widgets/featured_service_display.dart';
 import '../widgets/home_widgets/offer_display.dart';
@@ -23,12 +26,17 @@ class _HomeScreenState extends State<HomeScreen> {
   late List<Category> categoryList;
   late List<PopularService> popularServiceList;
 
+  int currentIndex = 0;
+
+  late final List<Widget> screens = [
+    homePage(),
+    CategoryScreen(categoryList: categoryList),
+    const ComingSoonScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const AppbarHome(),
-      body: getOffer(),
-    );
+    return getOffer();
   }
 
   Widget getOffer() {
@@ -96,6 +104,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget body() {
+    return Scaffold(
+      appBar: const AppbarHome(),
+      bottomNavigationBar: bottonNavigation(),
+      body: screens[
+          (currentIndex == 0) || (currentIndex == 1) ? currentIndex : 2],
+    );
+  }
+
+  Widget homePage() {
     return SafeArea(
       minimum: const EdgeInsets.all(16),
       child: SingleChildScrollView(
@@ -108,6 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
             OfferDisplay(offerList: offerList),
             const SizedBox(height: 8),
             FeaturedServiceDisplay(featuredServiceList: featureServiceList),
+            CategoryScreen(categoryList: categoryList),
           ],
         ),
       ),
@@ -115,10 +133,40 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget loadingWidget() {
-    return const Center(
-      child: CircularProgressIndicator(
-        color: Colors.grey,
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(
+          color: Colors.grey,
+        ),
       ),
+    );
+  }
+
+  Widget bottonNavigation() {
+    return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
+      currentIndex: currentIndex,
+      onTap: (index) => setState(() => currentIndex = index),
+      selectedItemColor: ColorPalette.darkBlue(),
+      unselectedItemColor: Colors.black,
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
+      items: [
+        navigationItem(icon: Icons.home_outlined),
+        navigationItem(icon: Icons.grid_view_outlined),
+        navigationItem(icon: Icons.calendar_month_outlined),
+        navigationItem(icon: Icons.chat_bubble_outline),
+        navigationItem(icon: Icons.person_2_outlined),
+      ],
+    );
+  }
+
+  BottomNavigationBarItem navigationItem({
+    required IconData icon,
+  }) {
+    return BottomNavigationBarItem(
+      icon: Icon(icon),
+      label: '',
     );
   }
 

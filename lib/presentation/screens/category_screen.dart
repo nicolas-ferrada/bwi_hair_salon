@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../../data/models/category.dart';
+
 class CategoryScreen extends StatelessWidget {
-  const CategoryScreen({super.key});
+  final List<Category> categoryList;
+  const CategoryScreen({
+    super.key,
+    required this.categoryList,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Category');
+    return const Center(child: Text('Category'));
   }
 }
