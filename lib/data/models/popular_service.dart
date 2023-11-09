@@ -7,17 +7,27 @@ class PopularService extends Section {
   final int totalReviews;
   final bool isFavorite;
 
-  const PopularService({
-    required super.title,
-    required super.image,
-    required super.category,
+  PopularService({
     required this.location,
     required this.distance,
     required this.rating,
     required this.totalReviews,
     required this.isFavorite,
+    required super.title,
+    required super.image,
+    required super.category,
   });
 
-  @override
-  void getData() {}
+  factory PopularService.fromMap(Map<String, dynamic> map) {
+    return PopularService(
+      location: map['location'] as String,
+      distance: map['distance'] as String,
+      rating: map['rating'] as double,
+      totalReviews: map['totalReviews'] as int,
+      isFavorite: map['isFavorite'] as bool,
+      title: map['title'] as String,
+      image: map['image'] as String,
+      category: map['category'] as String,
+    );
+  }
 }

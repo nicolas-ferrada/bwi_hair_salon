@@ -1,10 +1,10 @@
-import 'package:bwi_hair_salon/domain/phone_service.dart';
-import 'package:bwi_hair_salon/presentation/utils/color_palette.dart';
-import 'package:bwi_hair_salon/presentation/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../data/providers/user_phone_provider.dart';
+import '../../../domain/phone_service.dart';
+import '../../utils/color_palette.dart';
+import '../../utils/show_snackbar.dart';
 
 class LoginButton extends StatelessWidget {
   final bool isLoginScreen;

@@ -6,8 +6,8 @@ import 'package:provider/provider.dart';
 
 import 'data/providers/user_phone_provider.dart';
 import 'domain/firebase_options.dart';
-import 'presentation/screens/home.dart';
-import 'presentation/screens/login.dart';
+import 'presentation/screens/home_screen.dart';
+import 'presentation/screens/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -36,9 +36,9 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return const Home();
+              return const HomeScreen();
             } else {
-              return const Login();
+              return const LoginScreen();
             }
           },
         ),

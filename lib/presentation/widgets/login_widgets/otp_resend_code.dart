@@ -1,10 +1,11 @@
 import 'dart:async';
 
-import 'package:bwi_hair_salon/data/providers/user_phone_provider.dart';
-import 'package:bwi_hair_salon/domain/phone_service.dart';
-import 'package:bwi_hair_salon/presentation/utils/show_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../../data/providers/user_phone_provider.dart';
+import '../../../domain/phone_service.dart';
+import '../../utils/show_snackbar.dart';
 
 class OTPResendCode extends StatefulWidget {
   final int? resendOTP;

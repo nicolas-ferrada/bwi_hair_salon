@@ -1,6 +1,7 @@
-import 'package:bwi_hair_salon/presentation/widgets/login_widgets/otp.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import '../presentation/widgets/login_widgets/otp.dart';
 
 class SignInWithPhoneService {
   static final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

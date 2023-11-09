@@ -7,8 +7,8 @@ import '../widgets/login_widgets/login_otp_container.dart';
 import '../widgets/login_widgets/login_phone_input.dart';
 import '../widgets/login_widgets/login_skip_button.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

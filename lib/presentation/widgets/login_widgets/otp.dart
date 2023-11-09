@@ -1,11 +1,12 @@
-import 'package:bwi_hair_salon/presentation/widgets/login_widgets/login_button.dart';
-import 'package:bwi_hair_salon/presentation/widgets/login_widgets/login_image.dart';
-import 'package:bwi_hair_salon/presentation/widgets/login_widgets/login_legal.dart';
-import 'package:bwi_hair_salon/presentation/widgets/login_widgets/login_otp_container.dart';
-import 'package:bwi_hair_salon/presentation/widgets/login_widgets/login_skip_button.dart';
-import 'package:bwi_hair_salon/presentation/widgets/login_widgets/otp_code_input.dart';
-import 'package:bwi_hair_salon/presentation/widgets/login_widgets/otp_resend_code.dart';
 import 'package:flutter/material.dart';
+
+import 'login_button.dart';
+import 'login_image.dart';
+import 'login_legal.dart';
+import 'login_otp_container.dart';
+import 'login_skip_button.dart';
+import 'otp_code_input.dart';
+import 'otp_resend_code.dart';
 
 class OTP extends StatelessWidget {
   final String verificationId;
