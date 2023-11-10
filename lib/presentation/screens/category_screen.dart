@@ -87,11 +87,13 @@ class CategoryScreen extends StatelessWidget {
   }
 
   double calculateNeededSpace() {
-    int objPerRow = 3;
-    int pixelPerRow = 165;
-    return (((((categoryListLength() - 1) / objPerRow) + 1) * pixelPerRow)
-            .ceil())
-        .toDouble();
+    const int objectsPerRow = 3;
+    const int pixelPerRow = 160;
+    int totalObjects = categoryListLength();
+
+    int totalRows = (totalObjects / objectsPerRow).ceil();
+
+    return (totalRows * pixelPerRow).toDouble();
   }
 
   int categoryListLength() {
@@ -104,7 +106,6 @@ class CategoryScreen extends StatelessWidget {
     return Column(
       children: [
         Expanded(
-          flex: 3,
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -115,12 +116,10 @@ class CategoryScreen extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 2),
-        Expanded(
-          child: Text(
-            category.title,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+        Text(
+          category.title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
           ),
         ),
       ],
