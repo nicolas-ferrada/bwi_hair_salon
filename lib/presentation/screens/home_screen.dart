@@ -30,9 +30,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   late final List<Widget> screens = [
     homePage(),
-    CategoryScreen(categoryList: categoryList),
+    CategoryScreen(
+      categoryList: categoryList,
+      isHomePage: false,
+      changePageIndex: changePageIndex,
+    ),
     const ComingSoonScreen(),
   ];
+
+  // Callback function to update the index page from category widget
+  changePageIndex({required int newIndex}) {
+    setState(() {
+      currentIndex = newIndex;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -125,7 +136,11 @@ class _HomeScreenState extends State<HomeScreen> {
             OfferDisplay(offerList: offerList),
             const SizedBox(height: 8),
             FeaturedServiceDisplay(featuredServiceList: featureServiceList),
-            CategoryScreen(categoryList: categoryList),
+            CategoryScreen(
+              categoryList: categoryList,
+              isHomePage: true,
+              changePageIndex: changePageIndex,
+            ),
           ],
         ),
       ),
