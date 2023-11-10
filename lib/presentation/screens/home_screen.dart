@@ -1,5 +1,6 @@
 import 'package:bwi_hair_salon/presentation/screens/category_screen.dart';
 import 'package:bwi_hair_salon/presentation/screens/coming_soon_screen.dart';
+import 'package:bwi_hair_salon/presentation/widgets/home_widgets/popular_services_display.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -141,6 +142,7 @@ class _HomeScreenState extends State<HomeScreen> {
               isHomePage: true,
               changePageIndex: changePageIndex,
             ),
+            PopularServiceDisplay(popularServiceList: popularServiceList),
           ],
         ),
       ),

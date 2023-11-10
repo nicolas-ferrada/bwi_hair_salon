@@ -3,8 +3,8 @@ import 'abstract_section.dart';
 class PopularService extends Section {
   final String location;
   final String distance;
-  final double rating;
-  final int totalReviews;
+  final num rating;
+  final num totalReviews;
   final bool isFavorite;
 
   PopularService({
@@ -22,8 +22,8 @@ class PopularService extends Section {
     return PopularService(
       location: map['location'] as String,
       distance: map['distance'] as String,
-      rating: map['rating'] as double,
-      totalReviews: map['totalReviews'] as int,
+      rating: map['rating'] as num,
+      totalReviews: map['totalReviews'] as num,
       isFavorite: map['isFavorite'] as bool,
       title: map['title'] as String,
       image: map['image'] as String,
