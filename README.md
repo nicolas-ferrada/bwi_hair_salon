@@ -1,16 +1,24 @@
-# bwi_hair_salon
+# BWI Hair Salon
 
-A new Flutter project.
+## Technologies
+![dart](https://img.shields.io/badge/Dart-02569B?style=for-the-badge&logo=dart&logoColor=0175C2&labelColor=101010) 
+![flutter](https://img.shields.io/badge/Flutter-0175C2?style=for-the-badge&logo=flutter&logoColor=0175C2&labelColor=101010) 
+![firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=yellow&labelColor=101010)
 
-## Getting Started
+## Why this project?
 
-This project is a starting point for a Flutter application.
+This project is an assigment from a selection process of a Flutter intership.
 
-A few resources to get you started if this is your first Flutter project:
+#### Instructions were: 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+"Build a small app using screens attached with this assignment. App needs to have firebase phone login and should be able to read data from firestore on home and category screen. Data should not be static. Text and images should be read from firestore and firestorage respectively."
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Content of the app
+
+The application reads all its data from Firebase firestore, creating different 'Section' objects to display the information on the different widgets.
+
+I also transformed the images designs I got to flutter functional and adaptative widgets.
+
+## Time
+
+This entire project took me five days from start to finish.
