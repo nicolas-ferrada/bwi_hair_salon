@@ -1,5 +1,6 @@
-import '../../../data/models/featured_service.dart';
 import 'package:flutter/material.dart';
+
+import '../../../data/models/featured_service.dart';
 
 class FeaturedServiceDisplay extends StatelessWidget {
   final List<FeaturedService> featuredServiceList;

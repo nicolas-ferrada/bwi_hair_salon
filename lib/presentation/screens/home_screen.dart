@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/models/category.dart';
@@ -13,6 +12,7 @@ import '../widgets/home_widgets/offer_display.dart';
 import '../widgets/home_widgets/popular_services_display.dart';
 import 'category_screen.dart';
 import 'coming_soon_screen.dart';
+import 'profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -37,6 +37,8 @@ class _HomeScreenState extends State<HomeScreen> {
       changePageIndex: changePageIndex,
     ),
     const ComingSoonScreen(),
+    const ComingSoonScreen(),
+    const Profile(),
   ];
 
   // Callback function to update the index page from category widget
@@ -120,7 +122,9 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: const AppbarHome(),
       bottomNavigationBar: bottonNavigation(),
       body: screens[
-          (currentIndex == 0) || (currentIndex == 1) ? currentIndex : 2],
+          ((currentIndex == 0) || (currentIndex == 1) || (currentIndex == 4))
+              ? currentIndex
+              : 2],
     );
   }
 
@@ -185,9 +189,5 @@ class _HomeScreenState extends State<HomeScreen> {
       icon: Icon(icon),
       label: '',
     );
-  }
-
-  void signOut() {
-    FirebaseAuth.instance.signOut();
   }
 }
