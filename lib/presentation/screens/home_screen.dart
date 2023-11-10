@@ -1,6 +1,3 @@
-import 'package:bwi_hair_salon/presentation/screens/category_screen.dart';
-import 'package:bwi_hair_salon/presentation/screens/coming_soon_screen.dart';
-import 'package:bwi_hair_salon/presentation/widgets/home_widgets/popular_services_display.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +10,9 @@ import '../utils/color_palette.dart';
 import '../widgets/home_widgets/appbar_home.dart';
 import '../widgets/home_widgets/featured_service_display.dart';
 import '../widgets/home_widgets/offer_display.dart';
+import '../widgets/home_widgets/popular_services_display.dart';
+import 'category_screen.dart';
+import 'coming_soon_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

@@ -1,6 +1,6 @@
-import 'package:bwi_hair_salon/data/models/popular_service.dart';
-import 'package:bwi_hair_salon/presentation/utils/color_palette.dart';
-import 'package:bwi_hair_salon/presentation/utils/compare_booleans.dart';
+import '../../../data/models/popular_service.dart';
+import '../../utils/color_palette.dart';
+import '../../utils/compare_booleans.dart';
 import 'package:flutter/material.dart';
 
 class PopularServiceDisplay extends StatelessWidget {

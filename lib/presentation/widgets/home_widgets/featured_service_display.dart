@@ -1,4 +1,4 @@
-import 'package:bwi_hair_salon/data/models/featured_service.dart';
+import '../../../data/models/featured_service.dart';
 import 'package:flutter/material.dart';
 
 class FeaturedServiceDisplay extends StatelessWidget {

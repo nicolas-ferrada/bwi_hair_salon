@@ -1,7 +1,7 @@
-import 'package:bwi_hair_salon/presentation/utils/color_palette.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/models/category.dart';
+import '../utils/color_palette.dart';
 
 class CategoryScreen extends StatelessWidget {
   final List<Category> categoryList;
