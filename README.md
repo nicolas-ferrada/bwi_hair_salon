@@ -15,7 +15,7 @@ This project is an assigment from a selection process of a Flutter intership.
 
 ## Content of the app
 
-The application has a login with a phone using Firebase Auth. When the user creates its account, it goes to the home page, where the app reads all the data from Firebase Firestore, creating different 'Section' objects to display the information on the different widgets. Those functional and adaptative widgets I created were taken from the images designs (UI) they sent me to.
+The application has a login with a phone number using Firebase Auth. When the user creates its account, it goes to the home page, where the app reads all the data from Firebase Firestore, creating different 'Section' objects to display the information on the different widgets. Those functional and adaptative widgets I created were taken from the images designs (UI) they sent me to.
 
 ## Time
 
