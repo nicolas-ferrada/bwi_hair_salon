@@ -7,7 +7,7 @@
 
 ## Why this project?
 
-This project is an assigment from a selection process of a Flutter intership.
+This project is an assignment from a selection process of a Flutter intership.
 
 #### Instructions were: 
 
